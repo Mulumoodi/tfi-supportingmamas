@@ -41,3 +41,33 @@ a:hover .header-profile-image {
 .has-error .help-inline.error-text {
   display: inline;
 }
+
+/*Supporting Mamas*/
+.header {
+	background-color: #00CED1;
+	width: 100%;
+}
+.headerfont {
+	color: white;
+}
+h1 {
+	display: inline-block;
+	font-weight: 300;
+}
+.logo {
+	height: 70px;
+	width: 70px;
+	display: inline-block;
+	position: relative;
+	bottom: 10px;
+	padding: 5px;
+	margin-left: 0%;
+}
+.box{
+  margin-top: 90px;
+	padding: 20px 10px 10px 10px;
+	text-align: center;
+	background-color: #00CED1;
+	border-radius: 10px;
+	color: white;
+}

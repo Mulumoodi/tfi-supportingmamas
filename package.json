@@ -53,6 +53,7 @@
     "glob": "~7.1.1",
     "helmet": "~3.8.1",
     "jasmine-core": "~2.7.0",
+    "jquery": "^3.2.1",
     "lodash": "~4.17.4",
     "lusca": "~1.5.1",
     "method-override": "~2.3.8",
