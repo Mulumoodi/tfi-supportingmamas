@@ -4,6 +4,14 @@
     <div class="box">
     <form name="vm.userForm" ng-submit="vm.signup(vm.userForm.$valid)" class="signin" novalidate autocomplete="off">
       <!--fieldset-->
+      <div class="form-group" show-errors>
+          <label for="firstName">ZipCode</label>
+          <input type="text" id="firstName" name="firstName" class="form-control" ng-model="vm.credentials.firstName" placeholder="ZipCode" required autofocus>
+          <p class="Zipcode-i">We hope to expand soon, but for now Supporting Mamas is focused on supporting moms that live or work in the <b>Santa Clara County</b></p>
+          <div ng-messages="vm.userForm.firstName.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">First name is required.</p>
+          </div>
+        </div>
         <div class="form-group" show-errors>
           <label for="firstName">First Name</label>
           <input type="text" id="firstName" name="firstName" class="form-control" ng-model="vm.credentials.firstName" placeholder="First Name" required autofocus>
