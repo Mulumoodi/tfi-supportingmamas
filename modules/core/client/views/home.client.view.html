@@ -17,7 +17,7 @@
       </p>
     </div>
   </div>
-  <div ng-show="vm.authentication.user">
+  <div ng-show="vm.authentication.user" ng-controller="MeetingsController as mc">
     <div class="panel panel-default" style="width:130%; margin-left:-170px; font-size:20px; margin-top:70px;">
               <div class="panel-heading" style="background-color:#19b1c3;">
                   My Meetings
@@ -32,7 +32,12 @@
                       <th>Status</th>
                       <th>&nbsp;</th-->
                   </thead id="table2">
-                  <tbody > </tbody>
+                  <tr ng-repeat="meeting in mc.meetings">
+                    <td>{{ meeting.name}}</td>
+                    <td>{{ meeting.leader }}</td>
+                    <td>{{ meeting.name }}</td>
+                    <td><button ng-click="mc.save('true')">Register</button></td>
+                  </tr>
                 </table>
               </div>
         </div>
@@ -42,20 +47,23 @@
                       Upcoming Meetings
                   </div>
                   <div class="panel-body">
-                    <table id="table1" class="table table-striped task-table">
+                    <table  id="table1" class="table table-striped task-table">
                       <thead >
                           <th>Topic</th>
                           <th>Date/Time</th>
                           <th>Link</th>
-                          <th>Status</th>
-                          <!--th>Group Leader</th>
-                          <th>Status</th>
-                          <th>&nbsp;</th-->
-                      </thead id="table2">
-                      <tbody id="tbd"> </tbody>
+                          <th><button ng-click="mc.save('true')">Register</button></th>
+                      </thead>
+
+                        <tr ng-repeat="meeting in mc.meetingdata">
+                          <td>{{ meeting.topic }}</td>
+                          <td>{{ meeting.created_at }}</td>
+                          <td>{{ meeting.topic }}</td>
+                          <td><button>Register</button></td>
+                        </tr>
+
                     </table>
                   </div>
             </div>
   </div>
 </section>
-<button ng-controller="MeetingsController as vm1" ng-click="vm1.save('true')">Pseudo Register</button>

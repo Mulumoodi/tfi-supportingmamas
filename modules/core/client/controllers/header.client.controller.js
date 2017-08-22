@@ -17,12 +17,39 @@
 
     $scope.$on('$stateChangeSuccess', stateChangeSuccess);
 
+    vm.test=function(){
+      console.log("Hii");
+    }
+    /*vm.save=function (isValid) {
+      if (!isValid) {
+        $scope.$broadcast('show-errors-check-validity', 'vm.form.meetingForm');
+        return false;
+      }
+
+      // TODO: move create/update logic to service
+      if (vm.meeting._id) {
+        vm.meeting.$update(successCallback, errorCallback);
+      } else {
+        vm.meeting.$save(successCallback, errorCallback);
+      }
+
+      function successCallback(res) {
+        $state.go('meetings.view', {
+          meetingId: res._id
+        });
+      }
+
+      function errorCallback(res) {
+        vm.error = res.data.message;
+      }
+    }*/
+
     function stateChangeSuccess() {
       // Collapsing the menu after navigation
       vm.isCollapsed = false;
     }
 
-    Zoom.login({email:"cheryl@supportingmamas.org",password:"Supporting2017"},function(data){
+    /*Zoom.login({email:"cheryl@supportingmamas.org",password:"Supporting2017"},function(data){
           console.log("sucesssss"+JSON.stringify(data));
         })
         Zoom.getMeeting({meeting_number:824952884},
@@ -73,16 +100,16 @@
 
             var x2 = document.createElement("button");
             var t2 = document.createTextNode("Register");
-            //x2.setAttribute("href", data["meetings"][i]["join_url"]);
+            x2.setAttribute("ng-click", "mc.save('true')");
             x2.appendChild(t2);
             x1.appendChild(x2);
             row.appendChild(x1);
           }
    }
-   )
+ )*/
 
    // Save Meeting
-   function save(isValid) {
+  /* function save(isValid) {
      if (!isValid) {
        $scope.$broadcast('show-errors-check-validity', 'vm.form.meetingForm');
        return false;
@@ -104,6 +131,6 @@
      function errorCallback(res) {
        vm.error = res.data.message;
      }
-   }
+   }*/
   }
 }());

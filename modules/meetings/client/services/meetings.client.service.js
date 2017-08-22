@@ -3,29 +3,28 @@
   'use strict';
 
   angular
-    .module('meetings')
-    .factory('MeetingsService', MeetingsService);
+    .module('core')
+    .factory('MeetingsService', ['$http',function($http) {
 
-  MeetingsService.$inject = ['$resource'];
-
-  function MeetingsService($resource) {
-    var Meetings = $resource('/api/meetings', {}, {
-      update: {
-        method: 'PUT'
+    return{
+      update:function() {
+        return $http.post('/api/meetings');
+        //method: 'PUT'
       },
-      save: {
-        method: 'POST',
-        url: '/api/meetings'
+      save: function(data){
+        return $http.post('/api/meetings',data);
+        //method: 'POST',
+        //url: '/api/meetings'
+      },
+      get: function(){
+        return $http.get('/api/meetings');
+        //method: 'POST',
+        //url: '/api/meetings'
       }
-    });
+    };
+  }])
 
-  /*  angular.extend(Meetings, {
-      save: function (credentials) {
-        return this.update(credentials).$promise;
-      }
-    });*/
 
-    return Meetings;
   }
 
-}());
+());

@@ -10,12 +10,35 @@
         Posted on
         <span ng-bind="meeting.created | date:'mediumDate'"></span>
         by
-        <span ng-if="meeting.user" ng-bind="meeting.user.displayName"></span>
+        <span ng-if="meeting.name" ng-bind="meeting.name"></span>
         <span ng-if="!meeting.user">Deleted User</span>
       </small>
       <h4 class="list-group-item-heading" ng-bind="meeting.name"></h4>
     </a>
   </div>
+  <div class="panel panel-default" style="width:130%; margin-left:-170px; font-size:20px;">
+            <div class="panel-heading" style="background-color:#19b1c3;">
+                Upcoming Meetings
+            </div>
+            <div class="panel-body">
+              <table ng-controller="MeetingsController as mc" id="table1" class="table table-striped task-table">
+                <thead >
+                    <th>Topic</th>
+                    <th>Date/Time</th>
+                    <th>Link</th>
+                    <th><button >Register</button></th>
+                </thead>
+
+                  <tr ng-repeat="meeting in mc.meetingdata">
+                    <td>{{ meeting.topic }}</td>
+                    <td>{{ meeting.created_at }}</td>
+                    <td>{{ meeting.topic }}</td>
+                    <td><button>Register</button></td>
+                  </tr>
+
+              </table>
+            </div>
+      </div>
   <div class="alert alert-warning text-center" ng-if="vm.meetings.$resolved && !vm.meetings.length">
     No Meetings yet, why don't you <a ui-sref="meetings.create">create one</a>?
   </div>

@@ -6,48 +6,59 @@
     .module('meetings')
     .controller('MeetingsController', MeetingsController);
 
-  MeetingsController.$inject = ['$scope', '$state', '$window', 'Authentication', 'meetingResolve'];
+  MeetingsController.$inject = ['$scope', '$state', '$window', 'Authentication','MeetingsService'];
 
-  function MeetingsController($scope, $state, $window, Authentication, meeting) {
-    var vm = this;
+  function MeetingsController($scope, $state, $window, Authentication,meeting) {
+    //var mc = this;
+    var mc = this;
 
-    vm.authentication = Authentication;
-    vm.meeting = meeting;
-    vm.error = null;
-    vm.form = {};
-    vm.remove = remove;
-    vm.save = save;
+    mc.authentication = Authentication;
+    mc.meeting = meeting;
+    mc.error = null;
+    mc.form = {};
+    mc.remove = remove;
+    mc.save = save;
 
+    //mc.upcomingmeetings = meeting.get();//.query();
+    meeting.get()
+			.success(function(data) {
+				mc.meetings = data;
+				//$scope.loading = false;
+			});
+      Zoom.login({email:"cheryl@supportingmamas.org",password:"Supporting2017"},function(data){
+            console.log("sucesssss"+JSON.stringify(data));
+            Zoom.listMeeting({page_size:15,page_number:1},
+          function(data){
+            mc.meetingdata=data.meetings;
+            $scope.$apply();
+
+           })
+      })
+
+      function init(){
+        console.log("Initializing service");
+      }
     // Remove existing Meeting
     function remove() {
       if ($window.confirm('Are you sure you want to delete?')) {
-        vm.meeting.$remove($state.go('meetings.list'));
+        mc.meeting.$remove($state.go('meetings.list'));
       }
     }
 
     // Save Meeting
     function save(isValid) {
-      if (!isValid) {
-        $scope.$broadcast('show-errors-check-validity', 'vm.form.meetingForm');
-        return false;
-      }
+      var sampledata='{"name":"testName","leader":"testLeader"}'
+        meeting.save(sampledata)
+					.success(function(data) {
+						//$scope.loading = false;
+						//$scope.formData = {}; // clear the form so our user is ready to enter another
+						//$scope.todos = data; // assign our new list of todos
+					});
 
-      // TODO: move create/update logic to service
-      if (vm.meeting._id) {
-        vm.meeting.$update(successCallback, errorCallback);
-      } else {
-        vm.meeting.$save(successCallback, errorCallback);
-      }
-
-      function successCallback(res) {
-        $state.go('meetings.view', {
-          meetingId: res._id
-        });
-      }
-
-      function errorCallback(res) {
-        vm.error = res.data.message;
-      }
     }
+
+
+
+
   }
 }());

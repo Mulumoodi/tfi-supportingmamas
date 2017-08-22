@@ -28,9 +28,9 @@
         templateUrl: 'modules/meetings/client/views/form-meeting.client.view.html',
         controller: 'MeetingsController',
         controllerAs: 'vm',
-        resolve: {
+        /*resolve: {
           meetingResolve: newMeeting
-        },
+        },*/
         data: {
           roles: ['user', 'admin'],
           pageTitle: 'Meetings Create'
