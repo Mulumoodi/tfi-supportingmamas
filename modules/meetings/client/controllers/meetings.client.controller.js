@@ -18,6 +18,7 @@
     mc.form = {};
     mc.remove = remove;
     mc.save = save;
+    mc.test=test;
 
     //mc.upcomingmeetings = meeting.get();//.query();
     meeting.get()
@@ -66,6 +67,10 @@
 					});
 
     }
+     function test(data) {
+       console.log(data);
+
+     }
 
 
 
