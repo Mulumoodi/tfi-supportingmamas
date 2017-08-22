@@ -29,7 +29,17 @@
             console.log("sucesssss"+JSON.stringify(data));
             Zoom.listMeeting({page_size:15,page_number:1},
           function(data){
-            mc.meetingdata=data.meetings;
+            mc.meetingdata=angular.copy(data.meetings);
+            for(var i=0;i< mc.meetingdata.length;i++){
+              if((mc.meetingdata[i].start_time=="")||(Date.now()>new Date(mc.meetingdata[i].start_time).getTime())){
+                 mc.meetingdata.splice(i,1);
+                 i=i-1;
+              }
+              else{
+                mc.meetingdata[i].start_time=new Date(mc.meetingdata[i].start_time).toString();
+              }
+
+            }
             $scope.$apply();
 
            })
