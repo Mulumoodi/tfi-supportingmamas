@@ -71,3 +71,12 @@ h1 {
 	border-radius: 10px;
 	color: white;
 }
+
+.brand {
+	color: white;
+}
+
+#brand {
+	color: white;
+	font-size: 25px;
+}
