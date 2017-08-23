@@ -17,6 +17,14 @@
         method: 'POST',
         url: '/api/users/password'
       },
+      addMeetings: {
+        method:'POST',
+        url: '/api/users/meetings'
+      },
+      getMeetings: {
+        method:'GET',
+        url: '/api/users/meetings'
+      },
       deleteProvider: {
         method: 'DELETE',
         url: '/api/users/accounts',
@@ -40,6 +48,7 @@
         method: 'POST',
         url: '/api/auth/signin'
       }
+
     });
 
     angular.extend(Users, {
@@ -58,6 +67,12 @@
         return this.resetPasswordWithToken({
           token: token // api expects token as a parameter (i.e. /:token)
         }, passwordDetails).$promise;
+      },
+      addMeeting: function(meetingId){
+        return this.addMeetings(meetingId).$promise;
+      },
+      getMeetingList: function(meetingId){
+        return this.getMeetings(meetingId).$promise;
       },
       userSignup: function (credentials) {
         return this.signup(credentials).$promise;

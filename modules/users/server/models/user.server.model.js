@@ -125,7 +125,11 @@ var UserSchema = new Schema({
   },
   resetPasswordExpires: {
     type: Date
-  }
+  },
+  meetings:[{
+    id: {type: Number},
+    status: {type: String}
+  }]
 });
 
 /**

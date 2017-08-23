@@ -28,14 +28,12 @@
                     <th>Topic</th>
                       <th>Date/Time</th>
                       <th>Link</th>
-                      <!--th>Group Leader</th>
-                      <th>Status</th>
-                      <th>&nbsp;</th-->
+
                   </thead id="table2">
-                  <tr ng-repeat="meeting in mc.meetings">
-                    <td>{{ meeting.name}}</td>
-                    <td>{{ meeting.leader }}</td>
-                    <td>{{ meeting.name }}</td>
+                  <tr ng-repeat="meeting in mc.registeredmeetings">
+                    <td>{{ meeting.topic }}</td>
+                    <td>{{ meeting.start_time }}</td>
+                    <td>{{ meeting.topic }}</td>
                     <td><button ng-click="mc.save('true')">Register</button></td>
                   </tr>
                 </table>
@@ -52,14 +50,14 @@
                           <th>Topic</th>
                           <th>Date/Time</th>
                           <th>Link</th>
-                          <th><button ng-click="mc.save('true')">Register</button></th>
+
                       </thead>
 
                         <tr ng-repeat="meeting in mc.meetingdata">
                           <td>{{ meeting.topic }}</td>
                           <td>{{ meeting.start_time }}</td>
                           <td>{{ meeting.topic }}</td>
-                          <td><button ng-click="mc.test( meeting.topic )">Reister</button></td>
+                          <td><button ng-click="mc.test( meeting.id )">Register</button></td>
                         </tr>
 
                     </table>

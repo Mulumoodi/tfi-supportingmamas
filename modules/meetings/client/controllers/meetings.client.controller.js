@@ -6,27 +6,30 @@
     .module('meetings')
     .controller('MeetingsController', MeetingsController);
 
-  MeetingsController.$inject = ['$scope', '$state', '$window', 'Authentication','MeetingsService'];
+  MeetingsController.$inject = ['$scope', '$state', '$window', 'Authentication','MeetingsService','UsersService'];
 
-  function MeetingsController($scope, $state, $window, Authentication,meeting) {
+  function MeetingsController($scope, $state, $window, Authentication,meeting,user) {
     //var mc = this;
     var mc = this;
 
     mc.authentication = Authentication;
     mc.meeting = meeting;
+    mc.user=user;
     mc.error = null;
     mc.form = {};
     mc.remove = remove;
     mc.save = save;
     mc.test=test;
+    mc.fetch=fetch;
 
     //mc.upcomingmeetings = meeting.get();//.query();
-    meeting.get()
+    /*meeting.get()
 			.success(function(data) {
 				mc.meetings = data;
 				//$scope.loading = false;
-			});
-      Zoom.login({email:"cheryl@supportingmamas.org",password:"Supporting2017"},function(data){
+			});*/
+      fetch();
+      /*Zoom.login({email:"cheryl@supportingmamas.org",password:"Supporting2017"},function(data){
             console.log("sucesssss"+JSON.stringify(data));
             Zoom.listMeeting({page_size:15,page_number:1},
           function(data){
@@ -44,7 +47,7 @@
             $scope.$apply();
 
            })
-      })
+      })*/
 
       function init(){
         console.log("Initializing service");
@@ -61,19 +64,61 @@
       var sampledata='{"name":"testName","leader":"testLeader"}'
         meeting.save(sampledata)
 					.success(function(data) {
-						//$scope.loading = false;
-						//$scope.formData = {}; // clear the form so our user is ready to enter another
-						//$scope.todos = data; // assign our new list of todos
+
 					});
+          $scope.$apply();
 
     }
      function test(data) {
        console.log(data);
+       var str='{"id":"' +data+'"}';
+       user.addMeeting(str);
+       user.getMeetingList(function(data){
+         mc.registeredmeetings = data.meetings;
+       }
+       );
+       //$scope.$apply();
+       $state.go('meetings.list')
 
      }
+     function fetch() {
+       user.getMeetingList(function(data){
+         mc.registeredmeetings = data.meetings;
 
+         Zoom.login({email:"cheryl@supportingmamas.org",password:"Supporting2017"},function(data){
+               console.log("sucesssss"+JSON.stringify(data));
+               Zoom.listMeeting({page_size:15,page_number:1},
+             function(data){
+               mc.meetingdata=angular.copy(data.meetings);
+               for(var i=0;i< mc.meetingdata.length;i++){
+                 if((mc.meetingdata[i].start_time=="")||(Date.now()>new Date(mc.meetingdata[i].start_time).getTime())){
+                    mc.meetingdata.splice(i,1);
+                    i=i-1;
+                 }
+                 else{
+                   mc.meetingdata[i].start_time=new Date(mc.meetingdata[i].start_time).toString();
+                   for(var j=0;j< mc.registeredmeetings.length;j++){
+                     if(i==-1) break;
+                     if(mc.registeredmeetings[j].id==mc.meetingdata[i].id){
+                       mc.registeredmeetings[j]=mc.meetingdata[i];
+                       mc.meetingdata.splice(i,1);
+                       i=i-1;
+                     }
+                     /*else{
+                       mc.meetingdata[i].start_time=new Date(mc.meetingdata[i].start_time).toString();
+                     }*/
 
+                   }
 
+                 }
+
+               }
+               $scope.$apply();
+
+              })
+         })
+       })
+     }
 
   }
 }());
