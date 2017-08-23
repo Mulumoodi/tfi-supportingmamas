@@ -21,16 +21,16 @@
         <a id="menu-item" ng-switch-default ui-sref="{{item.state}}" ng-bind="item.title"></a>
       </li>
 
-          <li ui-sref-active="active">
+          <li ui-sref-active="active" ng-hide="vm.authentication.user">
         <a id="menu-item" ui-sref="authentication.signup">Sign Up</a>
       </li>
       <li class="divider-vertical"></li>
-      <li ui-sref-active="active">
+      <li ui-sref-active="active" ng-hide="vm.authentication.user">
         <a id="menu-item" ui-sref="authentication.signin">Sign In</a>
       </li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right" ng-show="vm.authentication.user">
-      <li class="dropdown" uib-dropdown>
+
+
+      <li class="dropdown" uib-dropdown ng-show="vm.authentication.user">
         <a class="dropdown-toggle user-header-dropdown-toggle" uib-dropdown-toggle role="button">
           <img ng-src="/{{vm.authentication.user.profileImageURL}}" alt="{{vm.authentication.user.displayName}}" class="header-profile-image" />
           <span ng-bind="vm.authentication.user.displayName"></span> <b class="caret"></b>
@@ -41,7 +41,7 @@
           </li>
           <li class="divider"></li>
           <li>
-            <a id="menu-item" href="/api/auth/signout" target="_self">Signout</a>
+            <a id="menu-item" href="/api/auth/signout" target="_self">Sign Out</a>
           </li>
         </ul>
       </li>
