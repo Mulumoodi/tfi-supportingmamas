@@ -29,4 +29,19 @@
 
 .Zipcode-i {
 	font-size: 11px;
+	margin-bottom: 5px;
 }
+
+.box{
+	padding-top: 10px;
+	text-align: center;
+	background-color: #00CED1;
+	border-radius: 10px;
+	color: white;
+}
+
+.logintext {
+	text-align: center;
+	color: white;
+}
+
