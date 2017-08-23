@@ -46,6 +46,7 @@ a:hover .header-profile-image {
 .header {
 	background-color: #00CED1;
 	width: 100%;
+	padding: 5px 15px 5px 15px;
 }
 .headerfont {
 	color: white;
@@ -78,5 +79,23 @@ h1 {
 
 #brand {
 	color: white;
-	font-size: 25px;
+	font-size: 30px;
+	padding-bottom: 5px;
+}
+
+.brand-image {
+	height:30px;
+	padding-bottom: 5px;
+}
+
+.navbar {
+	height: auto;
+}
+
+.navbar-header {
+	padding-bottom: 5px;
+}
+
+#menu-item {
+	font-size: 18px;
 }
