@@ -9,8 +9,13 @@
   MeetingsController.$inject = ['$scope', '$state', '$window', 'Authentication','MeetingsService','UsersService'];
 
   function MeetingsController($scope, $state, $window, Authentication,meeting,user) {
+
     //var mc = this;
     var mc = this;
+    if($state.params){
+      mc.meetingDate=$state.params.meetingId;
+
+    }
 
     mc.authentication = Authentication;
     mc.meeting = meeting;
@@ -69,16 +74,18 @@
           $scope.$apply();
 
     }
-     function test(data) {
+     function test(data,date) {
        console.log(data);
        var str='{"id":"' +data+'"}';
        user.addMeeting(str);
-       user.getMeetingList(function(data){
+       /*user.getMeetingList(function(data){
          mc.registeredmeetings = data.meetings;
        }
-       );
+     );*/
        //$scope.$apply();
-       $state.go('meetings.list')
+       $state.go('meetings.view', {
+         meetingId: date
+       });
 
      }
      function remove(data) {
