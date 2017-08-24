@@ -21,6 +21,10 @@
         method:'POST',
         url: '/api/users/meetings'
       },
+      removeMeetings: {
+        method:'POST',
+        url: '/api/users/removemeetings'
+      },
       getMeetings: {
         method:'GET',
         url: '/api/users/meetings'
@@ -70,6 +74,9 @@
       },
       addMeeting: function(meetingId){
         return this.addMeetings(meetingId).$promise;
+      },
+      deleteMeeting: function(meetingId){
+        return this.removeMeetings(meetingId).$promise;
       },
       getMeetingList: function(meetingId){
         return this.getMeetings(meetingId).$promise;

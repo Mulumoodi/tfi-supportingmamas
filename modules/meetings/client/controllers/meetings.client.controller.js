@@ -81,6 +81,12 @@
        $state.go('meetings.list')
 
      }
+     function remove(data) {
+       console.log(data);
+       var str='{"id":"' +data+'"}';
+       user.deleteMeeting(str);
+
+     }
      function fetch() {
        user.getMeetingList(function(data){
          mc.registeredmeetings = data.meetings;
@@ -92,11 +98,25 @@
                mc.meetingdata=angular.copy(data.meetings);
                for(var i=0;i< mc.meetingdata.length;i++){
                  if((mc.meetingdata[i].start_time=="")||(Date.now()>new Date(mc.meetingdata[i].start_time).getTime())){
+
+                   if(mc.registeredmeetings!=undefined){
+                   for(var j=0;j< mc.registeredmeetings.length;j++){
+                     if(i==-1) break;
+                     if(j==-1) break;
+                     if(mc.registeredmeetings[j].id==mc.meetingdata[i].id){
+                       mc.registeredmeetings[j]=mc.meetingdata[i];
+                       mc.registeredmeetings.splice(j,1);
+                       j=j-1;
+                     }
+                   }
+                 }
+
                     mc.meetingdata.splice(i,1);
                     i=i-1;
                  }
                  else{
                    mc.meetingdata[i].start_time=new Date(mc.meetingdata[i].start_time).toString();
+                   if(mc.registeredmeetings!=undefined){
                    for(var j=0;j< mc.registeredmeetings.length;j++){
                      if(i==-1) break;
                      if(mc.registeredmeetings[j].id==mc.meetingdata[i].id){
@@ -104,11 +124,8 @@
                        mc.meetingdata.splice(i,1);
                        i=i-1;
                      }
-                     /*else{
-                       mc.meetingdata[i].start_time=new Date(mc.meetingdata[i].start_time).toString();
-                     }*/
-
                    }
+                 }
 
                  }
 

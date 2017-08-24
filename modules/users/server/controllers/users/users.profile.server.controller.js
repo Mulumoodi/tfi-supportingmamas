@@ -211,3 +211,36 @@ exports.getMeetings = function (req, res) {
   res.json(safeUserObject || null);
 
 }
+exports.deleteMeeting = function (req, res) {
+  console.log("1234");
+  console.log(req.user);
+  console.log(req.body);
+  console.log("5678");
+
+  var user = req.user;
+  user.updated = Date.now();
+  //user.meetings.pull(req.body);
+
+  user.update(
+    { $pull: {"meetings":req.body} },
+false,
+true
+);
+
+  user.save(function (err) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      req.login(user, function (err) {
+        if (err) {
+          res.status(400).send(err);
+        } else {
+          res.json(user);
+        }
+      });
+    }
+  });
+
+}
