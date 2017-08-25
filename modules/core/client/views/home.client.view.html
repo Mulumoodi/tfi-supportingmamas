@@ -3,23 +3,28 @@
     <img src="/modules/core/client/img/brand/homePageBg.jpg" style="width:1200px; height:500px; margin-top:10%;"/>
   </div>
   <div ng-show="vm.authentication.user" ng-controller="MeetingsController as mc">
-    <div class="panel panel-default" style="width:130%; margin-left:-170px; font-size:20px; margin-top:70px;">
+    <div style="margin-top:50px;font-size:24px;font-family:Raleway;text-align:center;">Our goal is to remove barriers to care for mothers struggling with a perinatal mood disorder in Santa Clara County. Every Wednesday from 6pm to 7:30pm “we host an online Adjusting to Motherhood emotional support group. Registration is free but please sign up below to take part.</div>
+    <div class="panel panel-default" style="width:130%; margin-left:-170px; font-size:20px; margin-top:25px;">
               <div class="panel-heading" style="background-color:#19b1c3;">
                   My Meetings
               </div>
               <div class="panel-body">
-                <table id="table1" class="table table-striped task-table">
+                <table id="table1" class='table borderless'>
                   <thead >
-                    <th>Topic</th>
-                      <th>Date/Time</th>
+                      <th style="width:30%;">Date/Time</th>
+                      <th style="width:30%;">Topic</th>
+                      <th>Facilitator</th>
+                      <th>Status</th>
                       <th>Link</th>
 
                   </thead id="table2">
                   <tr ng-repeat="meeting in mc.registeredmeetings">
-                    <td>{{ meeting.topic }}</td>
-                    <td>{{ meeting.start_time }}</td>
-                    <td>{{ meeting.topic }}</td>
-                    <td><button ng-click="mc.remove( meeting.id )">Register</button></td>
+                    <td style="width:25%;">{{ meeting.start_time }}</td>
+                    <td style="width:25%;">{{ meeting.topic }}</td>
+                    <td>Cheryl Hart</td>
+                    <td>Registered</td>
+                    <td><a>Join</a></td>
+                    <td><button ng-click="mc.remove( meeting.id )">Drop Meeting</button></td>
                   </tr>
                 </table>
               </div>
@@ -30,19 +35,21 @@
                       Upcoming Meetings
                   </div>
                   <div class="panel-body">
-                    <table  id="table1" class="table table-striped task-table">
+                    <table  id="table1" class='table borderless'>
                       <thead >
-                          <th>Topic</th>
-                          <th>Date/Time</th>
-                          <th>Link</th>
+
+                          <th style="width:30%;">Date/Time</th>
+                          <th style="width:30%;">Topic</th>
+                          <th style="width:25%;">Facilitator</th>
+                          <th style="width:15%;">Register?</th>
 
                       </thead>
 
                         <tr ng-repeat="meeting in mc.meetingdata">
-                          <td>{{ meeting.topic }}</td>
-                          <td>{{ meeting.start_time }}</td>
-                          <td>{{ meeting.topic }}</td>
-                          <td><button type="button" class="btn btn-info" ng-click="mc.test( meeting.id,meeting.start_time )">Register</button></td>
+                          <td style="width:30%;">{{ meeting.start_time }}</td>
+                          <td style="width:30%;">{{ meeting.topic }}</td>
+                          <td style="width:25%;">Cheryl Hart</td>
+                          <td style="width:15%;"><button type="button" class="btn btn-info" ng-click="mc.test( meeting.id,meeting.start_time )">Register</button></td>
                         </tr>
 
                     </table>

@@ -92,6 +92,7 @@
        console.log(data);
        var str='{"id":"' +data+'"}';
        user.deleteMeeting(str);
+       location.reload();
 
      }
      function fetch() {

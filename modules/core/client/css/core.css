@@ -68,9 +68,11 @@ h1 {
   margin-top: 90px;
 	padding: 20px 10px 10px 10px;
 	text-align: center;
-	background-color: #00CED1;
+	background-color: transparent !important;
 	border-radius: 10px;
-	color: white;
+  border: solid !important;
+  color: black !important;
+
 }
 
 .brand {
@@ -101,4 +103,10 @@ h1 {
 }
 .navbar-nav > .active > a{
   color: transparent; !important;
+}
+
+.borderless td, .borderless th {
+    border: none !important;
+      font-family: Raleway;
+    width: 25%;
 }
