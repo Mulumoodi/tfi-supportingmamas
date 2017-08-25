@@ -1,39 +1,64 @@
 <div>
   <!--h3 class="col-xs-12 text-center">Or with your account</h3-->
+  <div class="container">
+    <div class="col-lg-8 col-lg-offset-2">
+      <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="row">
+              <div class="mycontent-left">
+              <div class="col-md-8">
+                <div class="col-md-11">
+                    <h3>Login to join or sign up for online support groups</h3>
+                    <div class="text-left">
+                    <form name="vm.userForm" ng-submit="vm.signin(vm.userForm.$valid)" class="signin" novalidate autocomplete="off">
+                      <fieldset>
+                        <div class="form-group" show-errors>
+                          <uib-alert type="danger" ng-show="vm.error" class="text-center text-danger">
+                            <span ng-bind="vm.error"></span>
+                          </uib-alert>
+                          <label for="usernameOrEmail"></label>
+                          <input type="text" id="usernameOrEmail" name="usernameOrEmail" class="form-control" ng-model="vm.credentials.usernameOrEmail" placeholder="Username or Email" required autofocus>
+                          <div ng-messages="vm.userForm.usernameOrEmail.$error" role="alert">
+                            <p class="help-block error-text" ng-message="required">Username or Email is required.</p>
+                          </div>
+                        </div>
+                        <div class="form-group" show-errors>
+                          <label for="password"></label>
+                          <input type="password" id="password" name="password" class="form-control" ng-model="vm.credentials.password" placeholder="Password" required>
+                          <div ng-messages="vm.userForm.password.$error" role="alert">
+                            <p class="help-block error-text" ng-message="required">Password is required.</p>
+                          </div>
+                        </div>
+                        <div class="text-left form-group">
+                          <button type="submit" class="btn btn-primary">Log in</button>
+                          <p>Don't have an account? <a ui-sref="authentication.signup">Sign up</a></p>
+                        </div>
+                        <div class="text-left forgot-password">
+                          <a ui-sref="password.forgot">Forgot your password?</a>
+                        </div>
+                        <br />
+                      </fieldset>
+                    </form>
 
-    <div class="col-xs-offset-2 col-xs-8 col-md-offset-4 col-md-4">
-    <div class="box">
-      <form name="vm.userForm" ng-submit="vm.signin(vm.userForm.$valid)" class="signin" novalidate autocomplete="off">
-        <fieldset>
-          <div class="form-group" show-errors>
-            <uib-alert type="danger" ng-show="vm.error" class="text-center text-danger">
-              <span ng-bind="vm.error"></span>
-            </uib-alert>
-            <h1 class="logintext"><b>Login</b></h1><br />
-            <label for="usernameOrEmail">Username or Email</label>
-            <input type="text" id="usernameOrEmail" name="usernameOrEmail" class="form-control" ng-model="vm.credentials.usernameOrEmail" placeholder="Username or Email" required autofocus>
-            <div ng-messages="vm.userForm.usernameOrEmail.$error" role="alert">
-              <p class="help-block error-text" ng-message="required">Username or Email is required.</p>
+                  </div>
+
+                </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+              <div class="mycontent-right">
+                <h4>New Online Adjusting to Motherhood Emotional Support Group.</h4>
+                <hr />
+                <ul class="signup-bullets">
+                  <li>Connect with other moms right from your home</li>
+                  <li>Safe and secure</li>
+                  <li>Facilitated by Cheryl Hart, Supporting Mama's Executive Director</li>
+                </ul>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="form-group" show-errors>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" class="form-control" ng-model="vm.credentials.password" placeholder="Password" required>
-            <div ng-messages="vm.userForm.password.$error" role="alert">
-              <p class="help-block error-text" ng-message="required">Password is required.</p>
-            </div>
-          </div>
-          <div class="text-center form-group">
-            <button type="submit" class="btn btn-primary">Sign in</button>
-            &nbsp; or&nbsp;
-            <a ui-sref="authentication.signup">Sign up</a>
-          </div>
-          <div class="text-center forgot-password">
-            <a ui-sref="password.forgot">Forgot your password?</a>
-          </div>
-          <br />
-        </fieldset>
-      </form>
-    </div>
+        </div>
+      </div>
   </div>
 </div>

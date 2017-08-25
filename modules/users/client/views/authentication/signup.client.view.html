@@ -1,11 +1,17 @@
-<div>
+<div class="container">
   <!--h3 class="col-xs-12 text-center">Or sign up using your email</h3-->
-  <div class="col-xs-offset-2 col-xs-8 col-md-offset-4 col-md-4">
-    <div class="box">
+
+  <div class="col-lg-8 col-lg-offset-2">
+    <div class="panel panel-default">
+    <div class="panel-body">
+    <div class="row">
+    <div class="col-md-8">
+    <div class="col-md-11">
+    <h3>Don't face perinatal depression or anxiety alone.</h3>
       <form name="vm.userForm" ng-submit="vm.signup(vm.userForm.$valid)" class="signin" novalidate autocomplete="off">
         <!--fieldset-->
         <div class="form-group" show-errors>
-            <label for="firstName">ZipCode</label>
+            <label for="firstName"></label>
             <input type="text" id="zipCode" name="zipCode" class="form-control" ng-model="vm.credentials.zipCode" placeholder="ZipCode" required autofocus>
             <p class="Zipcode-i">We hope to expand soon, but for now Supporting Mamas is focused on supporting moms that live or work in the <b>Santa Clara County</b></p>
             <div ng-messages="vm.userForm.firstName.$error" role="alert">
@@ -13,21 +19,21 @@
             </div>
           </div>
           <div class="form-group" show-errors>
-            <label for="firstName">First Name</label>
+            <label for="firstName"></label>
             <input type="text" id="firstName" name="firstName" class="form-control" ng-model="vm.credentials.firstName" placeholder="First Name" required autofocus>
             <div ng-messages="vm.userForm.firstName.$error" role="alert">
               <p class="help-block error-text" ng-message="required">First name is required.</p>
             </div>
           </div>
           <div class="form-group" show-errors>
-            <label for="lastName">Last Name</label>
+            <label for="lastName"></label>
             <input type="text" id="lastName" name="lastName" class="form-control" ng-model="vm.credentials.lastName" placeholder="Last Name" required>
             <div ng-messages="vm.userForm.lastName.$error" role="alert">
               <p class="help-block error-text" ng-message="required">Last name is required.</p>
             </div>
           </div>
           <div class="form-group" show-errors>
-            <label for="email">Email</label>
+            <label for="email"></label>
             <input type="email" id="email" name="email" class="form-control" ng-model="vm.credentials.email" placeholder="Email" lowercase required>
             <div ng-messages="vm.userForm.email.$error" role="alert">
               <p class="help-block error-text" ng-message="required">Email address is required.</p>
@@ -35,7 +41,7 @@
             </div>
           </div>
           <div class="form-group" show-errors>
-            <label for="username">Username</label>
+            <label for="username"></label>
             <input type="text" id="username" name="username" class="form-control" ng-model="vm.credentials.username" ng-pattern="vm.usernameRegex" placeholder="Username" lowercase required>
             <div ng-messages="vm.userForm.username.$error" role="alert">
               <p class="help-block error-text" ng-message="required">Username is required.</p>
@@ -43,7 +49,7 @@
             </div>
           </div>
           <div class="form-group" show-errors>
-            <label for="password">Password</label>
+            <label for="password"></label>
               <input type="password" id="password" name="password" class="form-control" ng-model="vm.credentials.password" placeholder="Password" uib-popover="{{vm.getPopoverMsg()}}" popover-trigger="outsideClick" password-validator required>
             <div ng-messages="vm.userForm.password.$error" role="alert">
               <p class="help-block error-text" ng-message="required">Password is required.</p>
@@ -53,16 +59,31 @@
             </div>
           </div>
           <div class="form-group" ng-show="!vm.userForm.password.$error.required">
-            <label>Password Requirements</label>
+            <label></label>
             <uib-progressbar value="requirementsProgress" type="{{requirementsColor}}"><span style="color:white; white-space:nowrap;">{{requirementsProgress}}%</span></uib-progressbar>
           </div>
-          <div class="text-center form-group">
+          <div class="text-left form-group">
             <button type="submit" class="btn btn-primary">Sign up</button>
-            &nbsp; or&nbsp;
-            <a ui-sref="authentication.signin" class="show-signup">Sign in</a>
+            <p>Already have an account?
+            <a ui-sref="authentication.signin" class="show-signup">Log in</a></p>
           </div>
         <!--/fieldset-->
       </form>
+      </div>
+      </div>
+      <div class="col-md-4">
+        <div class="mycontent-right">
+          <h4>New Online Adjusting to Motherhood Emotional Support Group.</h4>
+          <hr />
+          <ul class="signup-bullets">
+            <li>Connect with other moms right from your home</li>
+            <li>Safe and secure</li>
+            <li>Facilitated by Cheryl Hart, Supporting Mama's Executive Director</li>
+          </ul>
+          </div>
+        </div>
+    </div>
+    </div>
     </div>
   </div>
 </div>

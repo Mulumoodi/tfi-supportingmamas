@@ -46,3 +46,37 @@
 	margin-bottom: 15px;
 }
 
+.mycontent-left {
+	padding-right: 50px;
+	margin-right: 10px;
+  border-right: 1px solid #333;
+}
+
+h3 {
+	margin-top: 8px;
+}
+
+
+.panel-body {
+	padding: 50px;
+}
+
+.container {
+	left:auto;
+	right:auto;
+}
+
+.signup-bullets {
+	padding-left: 15px;
+}
+
+.col-lg-8 {
+	margin-top: 50px;
+}
+
+.btn-primary {
+	margin-top: 20px;
+	margin-bottom: 15px;
+}
+
+ul li { padding: 5px 0px; }
