@@ -1,6 +1,12 @@
 <section ng-controller="HeaderController as vm">
   <div   ng-hide="vm.authentication.user" >
-    <img src="/modules/core/client/img/brand/homePageBg.jpg" style="width:1200px; height:500px; margin-top:10%;"/>
+    <img src="/modules/core/client/img/brand/homePageBg.jpg" style="width:1750px; height:800px; margin-top:5%;margin-left:-300px;"/>
+    <img class="brand-image" id="brand" style="position:absolute;top: 150px;
+  left: 800px; width:150px;height:190px;" src="/modules/core/client/img/brand/logo.png"/>
+  <img class="brand-image" id="brand" style="position:absolute;top: 600px;
+left: 630px; width:500px;height:90px;" src="/modules/core/client/img/brand/supMamaLogo.png"/>
+<h4 style="position:absolute;top: 700px;left: 400px; width:1050px;height:90px;color:white;font-family: Raleway, Arial, Helvetica, sans-serif;font-size:22px;">Information and support
+for families experiencing prenatal depression or anxiety in the south Bay Area</h4>
   </div>
   <div ng-show="vm.authentication.user" ng-controller="MeetingsController as mc">
     <div style="margin-top:50px;font-size:24px;font-family:Raleway;text-align:center;">Our goal is to remove barriers to care for mothers struggling with a perinatal mood disorder in Santa Clara County. Every Wednesday from 6pm to 7:30pm “we host an online Adjusting to Motherhood emotional support group. Registration is free but please sign up below to take part.</div>
@@ -11,20 +17,20 @@
               <div class="panel-body">
                 <table id="table1" class='table borderless'>
                   <thead >
-                      <th style="width:30%;">Date/Time</th>
-                      <th style="width:30%;">Topic</th>
-                      <th>Facilitator</th>
-                      <th>Status</th>
-                      <th>Link</th>
+                      <th style="width:35%;">Date/Time</th>
+                      <th style="width:20%;">Topic</th>
+                      <th style="width:15%;">Facilitator</th>
+                      <th style="width:15%;">Status</th>
+                      <th style="width:15%;">Link</th>
 
                   </thead id="table2">
                   <tr ng-repeat="meeting in mc.registeredmeetings">
-                    <td style="width:25%;">{{ meeting.start_time }}</td>
-                    <td style="width:25%;">{{ meeting.topic }}</td>
-                    <td>Cheryl Hart</td>
-                    <td>Registered</td>
-                    <td><a>Join</a></td>
-                    <td><button ng-click="mc.remove( meeting.id )">Drop Meeting</button></td>
+                    <td style="width:35%;">{{ meeting.start_time }}</td>
+                    <td style="width:10%;">{{ meeting.topic }}</td>
+                    <td style="width:10%;">Cheryl Hart</td>
+                    <td style="width:15%;">Registered</td>
+                    <td style="width:15%;"><a href="{{meeting.join_url}}">Join</a></td>
+                    <td style="width:15%;"><button ng-click="mc.remove( meeting.id )" class="btn btn-warning">Drop Meeting</button></td>
                   </tr>
                 </table>
               </div>
@@ -38,7 +44,7 @@
                     <table  id="table1" class='table borderless'>
                       <thead >
 
-                          <th style="width:30%;">Date/Time</th>
+                          <th style="width:40%;">Date/Time</th>
                           <th style="width:30%;">Topic</th>
                           <th style="width:25%;">Facilitator</th>
                           <th style="width:15%;">Register?</th>
@@ -46,7 +52,7 @@
                       </thead>
 
                         <tr ng-repeat="meeting in mc.meetingdata">
-                          <td style="width:30%;">{{ meeting.start_time }}</td>
+                          <td style="width:40%;">{{ meeting.start_time }}</td>
                           <td style="width:30%;">{{ meeting.topic }}</td>
                           <td style="width:25%;">Cheryl Hart</td>
                           <td style="width:15%;"><button type="button" class="btn btn-info" ng-click="mc.test( meeting.id,meeting.start_time )">Register</button></td>

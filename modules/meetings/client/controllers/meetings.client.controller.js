@@ -14,7 +14,6 @@
     var mc = this;
     if($state.params){
       mc.meetingDate=$state.params.meetingId;
-
     }
 
     mc.authentication = Authentication;
