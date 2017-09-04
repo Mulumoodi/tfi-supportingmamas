@@ -25,6 +25,7 @@
     mc.save = save;
     mc.test=test;
     mc.fetch=fetch;
+    mc.goHome=goHome;
 
     //mc.upcomingmeetings = meeting.get();//.query();
     /*meeting.get()
@@ -87,6 +88,11 @@
        });
 
      }
+
+     function goHome() {
+       $state.go('home');
+     }
+
      function remove(data) {
        console.log(data);
        var str='{"id":"' +data+'"}';

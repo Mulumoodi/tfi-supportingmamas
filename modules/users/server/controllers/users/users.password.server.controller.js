@@ -78,6 +78,9 @@ exports.forgot = function (req, res, next) {
     },
     // If valid email, send reset email using service
     function (emailHTML, user, done) {
+      console.log(user.email);
+      console.log(config.mailer.from);
+      console.log(emailHTML);
       var mailOptions = {
         to: user.email,
         from: config.mailer.from,
