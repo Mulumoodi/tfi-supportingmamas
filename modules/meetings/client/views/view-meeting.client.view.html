@@ -1,29 +1,4 @@
-<section ng-controller="MeetingsController as mc">>
-  <!--div class="page-header">
-    <h1 ng-bind="vm.meeting.name"></h1>
-  </div>
-  <div class="pull-right"
-       ng-show="vm.meeting.isCurrentUserOwner">
-    <a class="btn btn-primary"
-       ui-sref="meetings.edit({ meetingId: vm.meeting._id })">
-      <i class="glyphicon glyphicon-edit"></i>
-    </a>
-    <a class="btn btn-primary" ng-click="vm.remove()">
-      <i class="glyphicon glyphicon-trash"></i>
-    </a>
-  </div>
-  <small>
-    <em class="text-muted">
-      Posted on
-      <span ng-bind="vm.meeting.created | date:'mediumDate'"></span>
-      by
-      <span ng-if="vm.meeting.user"
-            ng-bind="vm.meeting.user.displayName"></span>
-      <span ng-if="!vm.meeting.user">Deleted User</span>
-    </em>
-  </small>
-  <p class="lead" ng-bind="vm.meeting.content"></p-->
-
+<section ng-controller="MeetingsController as mc">
   <div style="font-size:36px;margin-top:35px; text-align:center;">New Online Adjusting to Motherhood Emotional Support Group.</div>
 
   <div class="col-lg-8 col-lg-offset-2">
@@ -43,17 +18,7 @@
       <a class="link" href="https://calendar.google.com"><img src="/modules/core/client/img/brand/google-calendar-logo.jpg" style="width:200px;height:100px;"></a>
   		<p class="text-left" style="margin-top:30px;">We encourage you to provide an emergency contact number in your profile before joining group<a class="link" href="#"> Fill it out here in your profile </a></p>
   	</div>
-  		<div class="dropdown">
-      Get an email reminder
-    		<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Days
-    		<span class="caret"></span></button>
-    		<ul class="dropdown-menu">
-      		<li><a href="#">1 Day</a></li>
-      		<li><a href="#">2 Days</a></li>
-      		<li><a href="#">3 Days</a></li>
-    		</ul>
-  		Before the meeting
-      </div>
+
   	</div>
   	<div>
   		<button type="button" class="btn btn-primary" ng-click="mc.goHome()">Save and Return to My Meetings</button>
