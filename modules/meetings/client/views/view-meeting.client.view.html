@@ -23,6 +23,7 @@
     </em>
   </small>
   <p class="lead" ng-bind="vm.meeting.content"></p-->
+
   <div style="font-size:36px;margin-top:35px; text-align:center;">New Online Adjusting to Motherhood Emotional Support Group.</div>
 
   <div class="col-lg-8 col-lg-offset-2">
@@ -39,9 +40,7 @@
   	<div class="text-center col-lg-12">
     <h4>You have successfully registered for the meeting!</h4>
   		<h4>Click any of the links below to add this to your calendar</h4>
-      <a href="" ><img style="margin-left:10px; height:30px; width:auto;" src="http://icons.iconarchive.com/icons/johanchalibert/mac-osx-yosemite/1024/calendar-icon.png" /> Apple Calendar </a>
-      <a href="" ><img style="margin-left:10px; height:30px; width:auto;" src="https://maxcdn.icons8.com/Share/icon/Logos//ms_outlook_logo1600.png" /> Microsoft Outlook</a>
-      <a href="" ><img style="margin-left:10px; height:30px; width:auto;" src="https://www.seeklogo.net/wp-content/uploads/2017/03/Google-Calendar-icon.png" /> Google Calendar</a>
+      <a class="link" href="https://calendar.google.com"><img src="/modules/core/client/img/brand/google-calendar-logo.jpg" style="width:200px;height:100px;"></a>
   		<p class="text-left" style="margin-top:30px;">We encourage you to provide an emergency contact number in your profile before joining group<a class="link" href="#"> Fill it out here in your profile </a></p>
   	</div>
   		<div class="dropdown">
@@ -57,7 +56,7 @@
       </div>
   	</div>
   	<div>
-  		<button type="button" class="btn btn-primary">Save and Return to My Meetings</button>
+  		<button type="button" class="btn btn-primary" ng-click="mc.goHome()">Save and Return to My Meetings</button>
   	</div>
     </div>
     </div>
