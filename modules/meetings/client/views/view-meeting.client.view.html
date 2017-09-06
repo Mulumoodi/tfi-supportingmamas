@@ -23,70 +23,42 @@
     </em>
   </small>
   <p class="lead" ng-bind="vm.meeting.content"></p-->
-  <div>
-    <h1 class="line1">New Adjusting to Motherhood Emotional Support Group</h1>
-  </div>
-  <div>
-    <h3 class="textpadding" style="text-align:left;">{{mc.meetingDate}}</h2>
-  </div>
-  <div>
-    <h3 class="textpadding" style="text-align:left;"><b>Group Leader:</b> Cheryl Hart</h3>
-  </div>
-  <div  >
-    <div>
-      <h3>You Have successfully registered for this meeting! </h3>
 
-      <h3>Click on any of the links below to add this to your calendar</h3>
+  <div style="font-size:36px;margin-top:35px; text-align:center;">New Online Adjusting to Motherhood Emotional Support Group.</div>
+
+  <div class="col-lg-8 col-lg-offset-2">
+  <div style="padding: 50px;" class="panel panel-default">
+  <div class="">
+      <div>
+        <h3 class="textpadding" style="text-align:left;">{{mc.meetingDate}}</h3>
+      </div>
+      <div style="text-align:left;">
+      	<h3>Facilitator: Cheryl Hart</h3>
+      </div>
+  	<div>
+
+  	<div class="text-center col-lg-12">
+    <h4>You have successfully registered for the meeting!</h4>
+  		<h4>Click any of the links below to add this to your calendar</h4>
+      <a class="link" href="https://calendar.google.com"><img src="/modules/core/client/img/brand/google-calendar-logo.jpg" style="width:200px;height:100px;"></a>
+  		<p class="text-left" style="margin-top:30px;">We encourage you to provide an emergency contact number in your profile before joining group<a class="link" href="#"> Fill it out here in your profile </a></p>
+  	</div>
+  		<div class="dropdown">
+      Get an email reminder
+    		<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Days
+    		<span class="caret"></span></button>
+    		<ul class="dropdown-menu">
+      		<li><a href="#">1 Day</a></li>
+      		<li><a href="#">2 Days</a></li>
+      		<li><a href="#">3 Days</a></li>
+    		</ul>
+  		Before the meeting
+      </div>
+  	</div>
+  	<div>
+  		<button type="button" class="btn btn-primary" ng-click="mc.goHome()">Save and Return to My Meetings</button>
+  	</div>
     </div>
-
-    <div class="row" style="padding-bottom: 20px; padding-top: 20px;">
-        <div class="col-sm-4">
-            <a class="link" href="https://calendar.google.com"><img src="/modules/core/client/img/brand/google-calendar-logo.jpg" style="width:200px;height:100px;"></a>
-        </div>
-        <div class="col-sm-4">
-            <a class="link" href="https://www.icloud.com/#calendar"><img src="/modules/core/client/img/brand/ical.jpg" style="width:120px;height:70px;"></a>
-        </div>
-        <div class="col-sm-4">
-          <a class="link" href="https://office.live.com/start/Calendar.aspx"><img src="/modules/core/client/img/brand/outlook.png" style="width:90px;height:50px;"></a>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-11">
-          <h4>We encourage participants to provide an emergency contact number in their profile before joining the online community.</h4>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-3">
-          <a class="link" href="#"> Fill it out here in your profile </a>
-        </div>
-      </div>
-
-      <div class="row" style="padding-top: 20px;">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-2"><h4>Get an email reminder</h4>
-        </div>
-        <div class="col-sm-1">
-          <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Select Days
-          </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">1 Day</a>
-              <a class="dropdown-item" href="#">2 Days</a>
-              <a class="dropdown-item" href="#">3 Days</a>
-            </div>
-        </div>
-        </div>
-        <div class="col-sm-2"><h4>before the meeting</h4></div>
-      </div>
-
-
-    <div class="row" style="padding-top: 10px">
-      <div class="col-sm-4">
-        <button type="button" class="btnend btn-primary" ng-click="mc.goHome()">Save and Return to My Meetings</button>
-      </div>
-
     </div>
   </div>
 </section>
