@@ -9,10 +9,18 @@ var path = require('path'),
   mongoose = require('mongoose'),
   User = mongoose.model('User'),
   nodemailer = require('nodemailer'),
+  smtpTransport1 = require('nodemailer-smtp-transport'),
   async = require('async'),
   crypto = require('crypto');
 
-var smtpTransport = nodemailer.createTransport(config.mailer.options);
+var smtpTransport = nodemailer.createTransport(smtpTransport1({
+   service: 'Gmail',
+   auth: {
+       //domain : "supportingmamas.org",
+       user: 'salesforceadmin@supportingmamas.org',
+       pass: 'tfisupportingmamas1'
+   }
+}));
 
 /**
  * Forgot for reset password (forgot POST)
@@ -83,7 +91,7 @@ exports.forgot = function (req, res, next) {
       console.log(emailHTML);
       var mailOptions = {
         to: user.email,
-        from: config.mailer.from,
+        from: 'salesforceadmin@supportingmamas.org',
         subject: 'Password Reset',
         html: emailHTML
       };
