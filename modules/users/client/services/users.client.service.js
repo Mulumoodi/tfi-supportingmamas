@@ -51,6 +51,10 @@
       signin: {
         method: 'POST',
         url: '/api/auth/signin'
+      },
+      zoomlogin: {
+        method: 'POST',
+        url: '/api/users/zoomlogin'
       }
 
     });
@@ -86,6 +90,9 @@
       },
       userSignin: function (credentials) {
         return this.signin(credentials).$promise;
+      },
+      logintozoom: function (credentials) {
+        return this.zoomlogin(credentials).$promise;
       }
     });
 

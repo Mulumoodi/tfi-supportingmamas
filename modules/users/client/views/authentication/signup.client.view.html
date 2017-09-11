@@ -14,8 +14,8 @@
             <label for="firstName"></label>
             <input type="text" id="zipCode" name="zipCode" class="form-control" ng-model="vm.credentials.zipCode" placeholder="ZipCode" required autofocus>
             <p class="Zipcode-i">We hope to expand soon, but for now Supporting Mamas is focused on supporting moms that live or work in the <b>Santa Clara County</b></p>
-            <div ng-messages="vm.userForm.firstName.$error" role="alert">
-              <p class="help-block error-text" ng-message="required">ZipCode is required.</p>
+            <div ng-show="vm.invalidZipCode">
+              <p >ZipCode is required.</p>
             </div>
           </div>
           <div class="form-group" show-errors>

@@ -1,4 +1,4 @@
-<section class="row">
+<section class="row" style="margin-top:50px;">
   <div class="col-xs-offset-1 col-xs-10 col-md-offset-4 col-md-4">
     <form name="vm.userForm" ng-submit="vm.updateUserProfile(vm.userForm.$valid)" class="signin" novalidate autocomplete="off">
       <fieldset>
@@ -29,6 +29,20 @@
           <input type="text" id="username" name="username" class="form-control" ng-model="vm.user.username" placeholder="Username" lowercase required>
           <div ng-messages="vm.userForm.username.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Username is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="EmergencyConact">Emergency Contact</label>
+          <input type="text" id="EmergencyConact" name="Emergency" class="form-control" ng-model="vm.user.emergencycontact" placeholder="Emergency Contact Name">
+          <div ng-messages="vm.userForm.username.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Please Enter an Emergency Contact Name</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="username">Emergency Contact Number</label>
+          <input type="text" id="phonenumber" name="phonenumber" class="form-control" ng-model="vm.user.emergencynumber" placeholder="Emergency Contact Number">
+          <div ng-messages="vm.userForm.username.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Contact Number is required.</p>
           </div>
         </div>
         <div class="text-center form-group">

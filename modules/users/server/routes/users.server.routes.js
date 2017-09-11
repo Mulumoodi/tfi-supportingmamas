@@ -13,6 +13,7 @@ module.exports = function (app) {
   app.route('/api/users/removemeetings').post(users.deleteMeeting);
   app.route('/api/users/meetings').get(users.getMeetings);
   app.route('/api/users/picture').post(users.changeProfilePicture);
+  app.route('/api/users/zoomlogin').post(users.zoomLogin);
 
   // Finish by binding the user middleware
   app.param('userId', users.userByID);

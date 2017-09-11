@@ -12,7 +12,19 @@ var _ = require('lodash'),
   multer = require('multer'),
   config = require(path.resolve('./config/config')),
   User = mongoose.model('User'),
+  //Zoom = require(path.resolve('./modules/core/client/views/javascript/zoomLib.js')),
   validator = require('validator');
+
+  var Zoom = require("zoomus")({
+    key : "6IPmkIw2R3yqmrqr1WYozA",
+    secret : "qKomAaKbCSCdiJcjyahGekVb2xo3Pfmf7AJ6"
+});
+
+var meeting = {
+    host_id: "-y30YxKVQHqQER2Kc2IYyw"
+}
+
+
 
 var whitelistedFields = ['firstName', 'lastName', 'email', 'username'];
 
@@ -211,6 +223,22 @@ exports.getMeetings = function (req, res) {
   res.json(safeUserObject || null);
 
 }
+
+exports.zoomLogin = function (req, res) {
+  var safeUserObject = null;
+  Zoom.meeting.list(meeting, function(resZoom){
+    if(res.error){
+      //handle error
+      res.json(safeUserObject || null);
+    } else {
+      console.log(resZoom);
+      safeUserObject=resZoom;
+      res.json(safeUserObject || null);
+    }
+});
+
+}
+
 exports.deleteMeeting = function (req, res) {
   console.log("1234");
   console.log(req.user);

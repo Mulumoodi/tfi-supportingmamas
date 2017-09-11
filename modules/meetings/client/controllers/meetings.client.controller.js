@@ -104,10 +104,7 @@
        user.getMeetingList(function(data){
          mc.registeredmeetings = data.meetings;
 
-         Zoom.login({email:"cheryl@supportingmamas.org",password:"Supporting2017"},function(data){
-               console.log("sucesssss"+JSON.stringify(data));
-               Zoom.listMeeting({page_size:15,page_number:1},
-             function(data){
+         user.logintozoom(function(data){
                mc.meetingdata=angular.copy(data.meetings);
                for(var i=0;i< mc.meetingdata.length;i++){
                  if((mc.meetingdata[i].start_time=="")||(Date.now()>new Date(mc.meetingdata[i].start_time).getTime())){
@@ -145,7 +142,7 @@
                }
                $scope.$apply();
 
-              })
+            //  })
          })
        })
      }
