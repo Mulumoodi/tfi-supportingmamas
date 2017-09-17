@@ -29,7 +29,9 @@ for families experiencing prenatal depression or anxiety in the south Bay Area</
                     <td style="width:10%;">{{ meeting.topic }}</td>
                     <td style="width:10%;">Cheryl Hart</td>
                     <td style="width:15%;">Registered</td>
-                    <td style="width:15%;"><a href="{{meeting.join_url}}" target="_blank">Join</a></td>
+                    <!--td style="width:15%;"><a href="{{meeting.join_url}}" target="_blank">Join</a></td-->
+                    <td style="width:15%;"><button type="button" class="btn btn-info" ng-click="mc.joinMeeting( meeting.id,meeting.start_time,meeting.join_url )">Join</button></td>
+
                     <td style="width:15%;"><button ng-click="mc.remove( meeting.id )" class="btn btn-warning">Drop Meeting</button></td>
                   </tr>
                 </table>

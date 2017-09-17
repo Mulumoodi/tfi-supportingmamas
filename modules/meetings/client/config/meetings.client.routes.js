@@ -15,7 +15,7 @@
         template: '<ui-view/>'
       })
       .state('meetings.list', {
-        url: '',
+        url: '/join/:meetingId/:url',
         templateUrl: 'modules/meetings/client/views/list-meetings.client.view.html',
         controller: 'MeetingsListController',
         controllerAs: 'vm',

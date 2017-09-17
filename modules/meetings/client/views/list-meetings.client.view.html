@@ -1,112 +1,38 @@
-<section>
-  <!--div class="page-header">
-    <h1>Meetings</h1>
-  </div>
-  <div class="list-group">
-    <a ng-repeat="meeting in vm.meetings"
-       ui-sref="meetings.view({ meetingId: meeting._id })"
-       class="list-group-item">
-      <small class="list-group-item-text">
-        Posted on
-        <span ng-bind="meeting.created | date:'mediumDate'"></span>
-        by
-        <span ng-if="meeting.name" ng-bind="meeting.name"></span>
-        <span ng-if="!meeting.user">Deleted User</span>
-      </small>
-      <h4 class="list-group-item-heading" ng-bind="meeting.name"></h4>
-    </a>
-  </div>
-  <div class="panel panel-default" style="width:130%; margin-left:-170px; font-size:20px;">
-            <div class="panel-heading" style="background-color:#19b1c3;">
-                Upcoming Meetings
-            </div>
-            <div class="panel-body">
-              <table ng-controller="MeetingsController as mc" id="table1" class="table table-striped task-table">
-                <thead >
-                    <th>Topic</th>
-                    <th>Date/Time</th>
-                    <th>Link</th>
-                    <th><button >Register</button></th>
-                </thead>
-
-                  <tr ng-repeat="meeting in mc.meetingdata">
-                    <td>{{ meeting.topic }}</td>
-                    <td>{{ meeting.created_at }}</td>
-                    <td>{{ meeting.topic }}</td>
-                    <td><button>Register</button></td>
-                  </tr>
-
-              </table>
-            </div>
+<section ng-controller="MeetingsController as mc">
+  <div class="pad">
+  	<br>
+  	<h1>Weekly Online Adjusting to Motherhood Support Group</h1>
+  	<br>
+  	<div style="padding: 50px;" class="panel panel-default">
+  	<h2>{{mc.meetingDate}}</h2>
+  	<h3><b>Facilitator:</b> Cheryl Hart </h3>
+  	<h3><b>Read before joining:</b>
+  		<br>Weekly Online Support Groups are peer led, meaning they are facilitated <br> by a volunteer who has ived through perinatal depression or anxiety.
+  	</h3>
+  	<h3><b>A couple things to remember before joining:</b>
+  		<ul>
+  			<li>This is a safe, non-judgemental space to share our thoughts and struggles with other moms
+  			</li>
+  			<br>
+  			<li>After the meeting, you will be invited to join a private Facebook group to connect with other moms.<br>We encourage you to join to build friendships and support each other
+  			</li>
+  		</ul>
+  	</h3>
+  	<h3><b>Instructions to join:</b></h3>
+  	<br>
+  	<div class="btn-group btn-group-lg">
+      <button type="button" class="btn btn-primary"><a href="{{meeting.url}}" target="_blank">Join</a></button>
+      <!--button type="button" class="btn btn-primary" ng-click="mc.goHome()">Return to Home page</button-->
       </div>
-  <div class="alert alert-warning text-center" ng-if="vm.meetings.$resolved && !vm.meetings.length">
-    No Meetings yet, why don't you <a ui-sref="meetings.create">create one</a>?
-  </div-->
-  <div>
-  	<h1 class="line1">New Adjusting to Motherhood Emotional Support Group</h1>
-  </div>
-  <div>
-  	<h3 class="textpadding">INSERT DATE HERE</h2>
-  </div>
-  <div>
-  	<h3 class="textpadding"><b>Group Leader:</b> INSERT GROUP LEADER</h3>
-  </div>
-  <div class="box" class="boxshadow">
-  	<div>
-  		<h3>You Have successfully registered for this meeting! </h3>
+      <h3>iPhone one-tap(US TOLL): +14086380968..350705669#</h3>
+      <br>
+      <h3>Or Telephone:
+      	<br>
+      	Dial:1(408)638-0968
+      	<br>
+      	Meeting ID: 350 705 669
+      </h3>
+      </div>
 
-  		<h3>Click on any of the links below to add this to your calendar</h3>
-  	</div>
-
-  	<div class="row" style="padding-bottom: 20px; padding-top: 20px;">
-      	<div class="col-sm-4">
-        		<a class="link" href="https://calendar.google.com">Google Calendar</a>
-      	</div>
-      	<div class="col-sm-4">
-        		<a class="link" href="https://www.icloud.com/#calendar">Apple Calendar</a>
-      	</div>
-      	<div class="col-sm-4">
-      		<a class="link" href="https://office.live.com/start/Calendar.aspx">Outlook</a>
-      	</div>
-    	</div>
-
-    	<div class="row">
-    		<div class="col-sm-11">
-    			<h4>We encourage participants to provide an emergency contact number in their profile before joining the online community.</h4>
-    		</div>
-    	</div>
-    	<div class="row">
-    		<div class="col-sm-1"></div>
-    		<div class="col-sm-2">
-    			<a class="link" href="#"> Fill it out here in your profile </a>
-    		</div>
-    	</div>
-
-    	<div class="row" style="padding-top: 20px;">
-    		<div class="col-sm-1"></div>
-    		<div class="col-sm-2"><h4>Get an email reminder</h4>
-    		</div>
-    		<div class="col-sm-1">
-    			<div class="dropdown">
-    			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      			Select Days
-    			</button>
-    				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      				<a class="dropdown-item" href="#">1 Day</a>
-      				<a class="dropdown-item" href="#">2 Days</a>
-      				<a class="dropdown-item" href="#">3 Days</a>
-    				</div>
-  			</div>
-    		</div>
-    		<div class="col-sm-2"><h4>before the meeting</h4></div>
-    	</div>
-
-
-  	<div class="row" style="padding-top: 10px">
-  		<div class="col-sm-4">
-  			<button type="button" class="btnend btn-primary">Save and Return to My Meetings</button>
-  		</div>
-
-  	</div>
   </div>
 </section>

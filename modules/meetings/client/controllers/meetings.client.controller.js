@@ -14,6 +14,7 @@
     var mc = this;
     if($state.params){
       mc.meetingDate=$state.params.meetingId;
+      mc.url=$state.params.url;
     }
 
     mc.authentication = Authentication;
@@ -26,6 +27,7 @@
     mc.test=test;
     mc.fetch=fetch;
     mc.goHome=goHome;
+    mc.joinMeeting=joinMeeting;
 
     //mc.upcomingmeetings = meeting.get();//.query();
     /*meeting.get()
@@ -85,6 +87,14 @@
        //$scope.$apply();
        $state.go('meetings.view', {
          meetingId: date
+       });
+
+     }
+
+     function joinMeeting(data,date,url) {
+       $state.go('meetings.list', {
+         meetingId: date,
+         url:url
        });
 
      }
