@@ -105,7 +105,7 @@ h1 {
 	font-size: 18px;
 }
 .navbar-nav > .active > a{
-  color: transparent; !important;
+  color: transparent !important;
 }
 
 .borderless td, .borderless th {
