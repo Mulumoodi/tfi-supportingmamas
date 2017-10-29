@@ -30,7 +30,7 @@
     function signup(isValid) {
       console.log("Printing zip");
       console.log(vm.credentials.zipCode);
-      if(vm.credentials.zipCode != "11111"){
+      if(vm.credentials.zipCode == "11111"){
         vm.invalidZipCode=true;
         console.log(vm.invalidZipCode);
         return false;
