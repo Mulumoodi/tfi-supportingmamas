@@ -88,7 +88,7 @@ h1 {
 }
 
 .brand-image {
-	height:37px;
+	height:60px;
 
 }
 
@@ -220,7 +220,12 @@ body {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
+
 .navbar-inverse {
-  background-color: transparent;
-  border-color: transparent;
+  background-color: #00CED1;
+    border-color: #00CED1;
+    background-image: linear-gradient(to bottom, #00CED1 0%, #00CED1 100%);
+}
+.navbar {
+	height: 100px !important;
 }
