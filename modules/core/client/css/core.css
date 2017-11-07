@@ -232,3 +232,11 @@ body {
 .pad{
 	margin-top:35px;
 }
+#menu-item {
+    font-size: 22px;
+    font-family: Raleway;
+}
+.navbar-inverse .navbar-nav>li>a {
+    color: white;
+  }
+    
